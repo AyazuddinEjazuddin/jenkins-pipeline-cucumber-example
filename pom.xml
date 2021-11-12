@@ -12,6 +12,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <!--Allure properties--> 
+        <aspectj.version>1.9.5</aspectj.version>
     </properties>
 
     <build>
@@ -35,6 +37,37 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <!--Allure Plugin--> 
+            <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-surefire-plugin</artifactId>
+                   <version>2.22.2</version>
+                   <configuration>
+                     <testFailureIgnore>false</testFailureIgnore>
+                     <argLine>
+                       -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                     </argLine>
+                   </configuration>
+                   <dependencies>
+                     <dependency>
+                       <groupId>org.aspectj</groupId>
+                       <artifactId>aspectjweaver</artifactId>
+                       <version>${aspectj.version}</version>
+                     </dependency>
+                   </dependencies>
+        </plugin>
+        <plugin>
+                   <groupId>io.qameta.allure</groupId>
+                   <artifactId>allure-maven</artifactId>
+                   <version>2.10.0</version>
+                   <configuration>
+                     <reportVersion>2.13.1</reportVersion>
+                     <configuration>
+                       <reportVersion>2.10.0</reportVersion>
+                       <reportDirectory>allure-report/</reportDirectory>
+                     </configuration>
+                   </configuration>
+                 </plugin>
         </plugins>
     </build>
 
@@ -56,6 +89,15 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+             
+       <!--Allure Dependency--> 
+       <dependency>
+         <groupId>io.qameta.allure</groupId>
+         <artifactId>allure-testng</artifactId>
+         <version>2.13.1</version>
+       </dependency>
+        
+             
 
     </dependencies>
 
