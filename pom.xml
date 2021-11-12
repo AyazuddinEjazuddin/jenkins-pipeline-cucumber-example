@@ -105,6 +105,11 @@
 			    -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
 			    -Dcucumber.options="--plugin io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"
 			</argLine>
+			<systemPropertyVariables>
+			    <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+			    <allure.link.issue.pattern>https://example.org/browse/{}</allure.link.issue.pattern>
+			    <allure.link.tms.pattern>https://example.org/browse/{}</allure.link.tms.pattern>
+			</systemPropertyVariables>
 		    </configuration>
 		    <dependencies>
 			<dependency>
