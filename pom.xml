@@ -40,11 +40,11 @@
          <artifactId>allure-testng</artifactId>
          <version>2.13.1</version>
        </dependency>
-        <dependency>
+<!--         <dependency>
                   <groupId>ru.yandex.qatools.allure</groupId>
                   <artifactId>allure-testng-adaptor</artifactId>
                   <version>1.5.4</version>
-        </dependency>
+        </dependency> -->
     </dependencies>
 
     <build>
@@ -91,13 +91,13 @@
                    <groupId>io.qameta.allure</groupId>
                    <artifactId>allure-maven</artifactId>
                    <version>2.10.0</version>
-<!--                    <configuration>
+                   <configuration>
                      <reportVersion>2.13.1</reportVersion>
                      <configuration>
                        <reportVersion>2.10.0</reportVersion>
                        <reportDirectory>allure-report/</reportDirectory>
                      </configuration>
-                   </configuration> -->
+                   </configuration>
                  </plugin>
         </plugins>
     </build>
